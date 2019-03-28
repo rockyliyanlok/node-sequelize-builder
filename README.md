@@ -1,4 +1,4 @@
-# node-restful-utils
+# node-sequelize-builder
 
 [![Build Status](https://travis-ci.org/rockyliyanlok/node-sequelize-builder.svg?branch=master)](https://travis-ci.org/rockyliyanlok/node-sequelize-builder) [![Download Stats](https://img.shields.io/npm/dw/sequelize-builder.svg)](https://github.com/rockyliyanlok/node-sequelize-builder)
 
