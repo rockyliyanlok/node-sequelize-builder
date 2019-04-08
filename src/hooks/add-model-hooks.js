@@ -7,8 +7,9 @@ const timestamp = require('@rockyli/timestamp')
 const addModelHooks = Model => {
 
   Model.addHook('beforeFind', options => {
+    const { rawAttributes } = Model
     const { paranoid } = options
-    if(_.isNil(paranoid) || !paranoid) {
+    if (rawAttributes.hasOwnProperty('deleted_at') && (_.isNil(paranoid) || !paranoid)) {
       options.where = _.assign(options.where, { deleted_at: { [Sequelize.Op.eq]: null } })
     }
   })
