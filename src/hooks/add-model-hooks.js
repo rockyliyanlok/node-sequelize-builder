@@ -40,7 +40,7 @@ const addModelHooks = Model => {
     try {
       if (model.attributes.includes('deleted_at')) {
         model.setDataValue('deleted_at', timestamp.current())
-        await model.save({ fields: ['deleted_at'], silent: true })
+        await model.save({ fields: ['deleted_at'] })
       }
       if (Model.needCache && typeof(Model.updateCache) === 'function') {
         Model.updateCache()
