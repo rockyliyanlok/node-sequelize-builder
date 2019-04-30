@@ -15,19 +15,19 @@ const addModelHooks = Model => {
   })
 
   Model.addHook('beforeCreate', model => {
-    if (model.attributes.includes('created_at')) model.setDataValue('created_at', timestamp.current())
-    if (model.attributes.includes('updated_at')) model.setDataValue('updated_at', timestamp.current())
+    if (model.rawAttributes.hasOwnProperty('created_at')) model.setDataValue('created_at', timestamp.current())
+    if (model.rawAttributes.hasOwnProperty('updated_at')) model.setDataValue('updated_at', timestamp.current())
   })
 
   Model.addHook('afterCreate', model => {
-    if (model.attributes.includes('id')) model.setDataValue('id', _.isNil(model.id) ? model.null : model.id)
+    if (model.rawAttributes.hasOwnProperty('id')) model.setDataValue('id', _.isNil(model.id) ? model.null : model.id)
     if (Model.needCache && typeof(Model.updateCache) === 'function') {
       Model.updateCache()
     }
   })
 
   Model.addHook('beforeUpdate', model => {
-    if (model.attributes.includes('updated_at')) model.setDataValue('updated_at', timestamp.current())
+    if (model.rawAttributes.hasOwnProperty('updated_at')) model.setDataValue('updated_at', timestamp.current())
   })
 
   Model.addHook('afterUpdate', () => {
@@ -38,7 +38,7 @@ const addModelHooks = Model => {
 
   Model.addHook('afterDestroy', async model => {
     try {
-      if (model.attributes.includes('deleted_at')) {
+      if (model.rawAttributes.hasOwnProperty('deleted_at')) {
         model.setDataValue('deleted_at', timestamp.current())
         await model.save({ fields: ['deleted_at'] })
       }
@@ -49,6 +49,15 @@ const addModelHooks = Model => {
       throw error
     }
   })
+
+  Model.prototype.delete = function (options) {
+    if (this.rawAttributes.hasOwnProperty('deleted_at') && this._modelOptions.paranoid) {
+      this.setDataValue('deleted_at', timestamp.current())
+      this.save()
+    } else {
+      return this.destroy(options)
+    }
+  }
 
 }
 

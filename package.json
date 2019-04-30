@@ -1,6 +1,6 @@
 {
   "name": "sequelize-builder",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "An utility class for sequelize, including model builder and query parser.",
   "main": "lib/index.js",
   "scripts": {
