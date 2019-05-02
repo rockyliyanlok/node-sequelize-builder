@@ -7,7 +7,7 @@ const parseDeleted = (Model, req = {}) => {
   const { deleted } = req.query
   const options = {}
   if (Model.options.paranoid) {
-    options.paranoid = !(_.isNil(deleted) && (deleted.toLowerCase() === 'true' || _.toInteger(deleted) >= 1))
+    options.paranoid = !(!_.isNil(deleted) && (deleted.toLowerCase() === 'true' || _.toInteger(deleted) >= 1))
   }
   return options
 }

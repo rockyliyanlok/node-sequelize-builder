@@ -1,3 +1,7 @@
+2.0.2 / May 2, 2019
+==================
+  * updated to fix a typo in parse-deleted
+
 2.0.1 / May 2, 2019
 ==================
   * updated to fix a typo in parse-timestamp
