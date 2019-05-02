@@ -5,7 +5,7 @@ const Sequelize = require('sequelize')
 
 const parseTimestamp = (Model, req = {}) => {
   req.query = req.query || {}
-  const { rawAttributes } = ConstantModel
+  const { rawAttributes } = Model
   const { before, after } = req.query
   const timestamp = rawAttributes.hasOwnProperty('time') ? 'time' : rawAttributes.hasOwnProperty('updated_at') ? 'updated_at' : null
   const options = { where: {} }

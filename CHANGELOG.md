@@ -1,3 +1,7 @@
+2.0.1 / May 2, 2019
+==================
+  * updated to fix a typo in parse-timestamp
+
 2.0.0 / May 2, 2019
 ==================
   * changed timestamp fields to DATETIME type instead of BIGINT(20) type
