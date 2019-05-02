@@ -1,3 +1,7 @@
+2.0.4 / May 2, 2019
+==================
+  * updated to keep created_at, updated_at and deleted_at as Date object after find
+
 2.0.3 / May 2, 2019
 ==================
   * updated package @rockyli/timestamp to version 2.0.0
