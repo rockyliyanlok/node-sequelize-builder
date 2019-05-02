@@ -1,3 +1,7 @@
+2.0.0 / May 2, 2019
+==================
+  * changed timestamp fields to DATETIME type instead of BIGINT(20) type
+
 1.0.4 / Apr 30, 2019
 ==================
   * updated limit maximum value to 1000

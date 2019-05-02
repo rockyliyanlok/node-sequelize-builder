@@ -5,14 +5,14 @@ const Sequelize = require('sequelize')
 
 const parseOtherFields = (Model, req = {}) => {
   req.query = req.query || {}
-  const { attributes } = Model
+  const { rawAttributes } = Model
   const { order, before, after, limit, offset, q, fields, deleted, ...otherFields } = req.query
   const options = { where: {} }
   for (const key in otherFields) {
     const sign = key.slice(-1)
     if (sign === '>' || sign === '<') {
       const attribute = key.slice(0, -1)
-      if (_.has(attributes, attribute)) {
+      if (rawAttributes.hasOwnProperty(attribute)) {
         if (sign === '>') {
           options.where[attribute] = { [Sequelize.Op.gte]: otherFields[key] }
         } else if (sign === '<') {
@@ -20,7 +20,7 @@ const parseOtherFields = (Model, req = {}) => {
         }
       }
     } else {
-      if (_.has(attributes, key)) {
+      if (rawAttributes.hasOwnProperty(key)) {
         options.where[key] = otherFields[key]
       }
     }

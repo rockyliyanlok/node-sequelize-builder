@@ -11,21 +11,23 @@ const attributes = {
     autoIncrement: true
   },
   uid: {
-    type: Sequelize.STRING(36),
+    type: Sequelize.UUID,
     allowNull: false,
     unique: true, 
     defaultValue: uuid
   },
   created_at: {
-    type: Sequelize.BIGINT(20),
-    allowNull: false
+    type: Sequelize.DATE,
+    allowNull: false, 
+    defaultValue: Sequelize.NOW
   },
   updated_at: {
-    type: Sequelize.BIGINT(20),
-    allowNull: false
+    type: Sequelize.DATE,
+    allowNull: false, 
+    defaultValue: Sequelize.NOW
   },
   deleted_at: {
-    type: Sequelize.BIGINT(20), 
+    type: Sequelize.DATE, 
     allowNull: true, 
     defaultValue: null
   }
