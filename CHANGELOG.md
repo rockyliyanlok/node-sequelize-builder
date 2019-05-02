@@ -1,3 +1,7 @@
+2.0.5 / May 2, 2019
+==================
+  * created force options for modifying updated_at without check and modify updated_at when soft delete
+
 2.0.4 / May 2, 2019
 ==================
   * updated to keep created_at, updated_at and deleted_at as Date object after find

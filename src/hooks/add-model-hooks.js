@@ -13,10 +13,19 @@ const addModelHooks = Model => {
     }
   })
 
+  Model.addHook('beforeUpdate', (model, options) => {
+    if (options.force) model.setDataValue('updated_at', new Date())
+  })
+
   Model.addHook('afterUpdate', () => {
     if (Model.needCache && typeof(Model.updateCache) === 'function') {
       Model.updateCache()
     }
+  })
+
+  Model.addHook('beforeDestroy', (model, options) => {
+    model.setDataValue('updated_at', new Date())
+    model.save()
   })
 
 }
