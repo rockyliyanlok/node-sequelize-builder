@@ -12,7 +12,7 @@ const addModelHooks = Model => {
         const { rawAttributes } = Model
         Object.keys(rawAttributes).forEach(field => {
           if (!_.isNil(model[field]) && rawAttributes[field].type.toString().startsWith('DATETIME')) {
-            model[field] = timestamp.fromDatetimeString(model[field])
+            model[field] = timestamp.fromDate(model[field])
           }
         })
         return model

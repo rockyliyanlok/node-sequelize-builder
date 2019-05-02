@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@rockyli/random": "^1.1.0",
-    "@rockyli/timestamp": "^1.0.0",
+    "@rockyli/timestamp": "^2.0.0",
     "lodash": "^4.17.11",
     "sequelize": "^5.8.0"
   },

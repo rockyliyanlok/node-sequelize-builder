@@ -1,3 +1,7 @@
+2.0.3 / May 2, 2019
+==================
+  * updated package @rockyli/timestamp to version 2.0.0
+
 2.0.2 / May 2, 2019
 ==================
   * updated to fix a typo in parse-deleted

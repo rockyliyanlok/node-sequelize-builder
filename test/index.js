@@ -2,7 +2,6 @@
 
 const Sequelize = require('sequelize')
 const chai = require('chai')
-const timestamp = require('@rockyli/timestamp')
 const expect = chai.expect
 chai.use(require('chai-string'))
 
