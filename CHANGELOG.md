@@ -1,3 +1,7 @@
+2.0.6 / May 28, 2019
+==================
+  * updated to not considering time field as timestamp filter
+
 2.0.5 / May 2, 2019
 ==================
   * created force options for modifying updated_at without check and modify updated_at when soft delete

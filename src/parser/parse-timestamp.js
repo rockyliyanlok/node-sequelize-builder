@@ -7,7 +7,7 @@ const parseTimestamp = (Model, req = {}) => {
   req.query = req.query || {}
   const { rawAttributes } = Model
   const { before, after } = req.query
-  const timestamp = rawAttributes.hasOwnProperty('time') ? 'time' : rawAttributes.hasOwnProperty('updated_at') ? 'updated_at' : null
+  const timestamp = rawAttributes.hasOwnProperty('updated_at') ? 'updated_at' : null
   const options = { where: {} }
   if (!_.isNil(timestamp) && (!_.isNil(before) || !_.isNil(after))) {
     options.where[timestamp] = {}
