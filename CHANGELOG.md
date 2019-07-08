@@ -1,3 +1,7 @@
+2.0.7 / July 8, 2019
+==================
+  * updated to increase maximum limit to 9999
+
 2.0.6 / May 28, 2019
 ==================
   * updated to not considering time field as timestamp filter
